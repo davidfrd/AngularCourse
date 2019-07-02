@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        :not(:defined) {
+            display: none   
+        }
+    </style>
+    <template id="calendar">
+        <div>
+            Loading...
+        </div>
+    </template>
+    <my-calendar date="01-01-2019">
+        Hello World
+    </my-calendar>
+    <script>
+        let template = document.querySelector("#calendar");
+        document.body.appendChild(
+            document.importNode(template.content, true)
+        );
+        customElements.whenDefined('my-calendar').then( (a, b, c) => {
+            
+        });
+
+        class Calendar extends HTMLElement {
+            constructor() {
+                super();
+                this.addEventListener('click', this.click);
+            }
+
+            click(ev) {
+                
+            }
+
+            disconnectedCallback() {
+                this.removeEventListener('click', this.click);
+            }
+
+            attributeChangedCallback(attrName, oldVal, newVal) {
+                this[attrName] && (this[attrName] = newVal);
+                console.log(attrName);
+            }
+
+            static get observedAttributes() {
+                return ['date'];
+            }
+        }
+
+        customElements.define('my-calendar', Calendar);
+    </script>
+</body>
+</html>

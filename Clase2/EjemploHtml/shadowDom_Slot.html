@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        :root {
+            --color: green;   
+        }
+
+        div {
+            color: red;
+        }
+        :not(:defined) {
+            display: none   
+        }
+    </style>
+    
+    <template id="calendar">
+        <style>
+            div {
+                color: var(--color, blue);
+            }
+        </style>
+        <div></div>
+        <slot></slot>
+    </template>
+
+    <my-calendar date="01-01-2019">
+        Hello World
+        <div>Shady Dom</div>
+    </my-calendar>
+
+    <script>
+        customElements.whenDefined('my-calendar').then( (a, b, c) => {
+            
+        });
+
+        class Calendar extends HTMLElement {
+            constructor() {
+                super();
+                this._date=null;
+                this.addEventListener('click', this.click);
+                this._shadow = this.attachShadow({mode: 'open'});
+            }
+
+            click(ev) {
+                this.dispatchEvent(new CustomEvent());
+            }
+
+            get date() {
+                return this._date;
+            }
+
+            set date(date) {
+                this._date = date;
+            }
+
+            connectedCallback() {
+                let template = document.querySelector("#calendar");
+
+                let templateClone = document.importNode(template.content, true);
+                let textDate = document.createTextNode(this.date);
+                let div = templateClone.querySelector('div');
+                div.appendChild(textDate);
+
+                this._shadow.appendChild(templateClone);
+            }
+
+            disconnectedCallback() {
+                this.removeEventListener('click', this.click);
+            }
+
+            attributeChangedCallback(attrName, oldVal, newVal) {
+                (attrName in this) && (this[attrName] = newVal);
+                console.log(attrName);
+            }
+
+            static get observedAttributes() {
+                return ['date'];
+            }
+        }
+
+        customElements.define('my-calendar', Calendar);
+    </script>
+</body>
+</html>
