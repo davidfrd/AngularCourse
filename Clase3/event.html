@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calendar">
+        <div class="day">1</div>
+        <div class="day">2</div>
+        <div class="day">3</div>
+    </div>
+    <script>
+        let calendar = document.querySelector(".calendar");
+        calendar.addEventListener('click', (event) => { console.log(event.target.innerHTML)});
+    </script>
+</body>
+</html>
