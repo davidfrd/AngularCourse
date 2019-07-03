@@ -12,12 +12,13 @@
 - [CanIUse](https://caniuse.com/)
 - [Web component polyfill](https://www.webcomponents.org/polyfills)
 
-Cosas que estudiarme de CSS
+Cosas que estudiar de CSS
 - DisplayGrid
 - Custom CSS Properties
 - Selectores CSS
 
-
+## Video WebComponents y Shadow
+- https://www.youtube.com/watch?v=mTNdTcwK3MM
 
 ## **Composite pattern** 
 Patrón con el que se recorren documentos estructurados como XML.
