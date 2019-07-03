@@ -10,6 +10,9 @@
 - [Service Locator Pattern](https://en.wikipedia.org/wiki/Service_locator_pattern)
 - [Inyección de dependencias](https://angular.io/guide/dependency-injection)
 
+## Video PWA
+- https://www.youtube.com/watch?v=E8BeSSdIUW4
+
 ## Decorator
 - Metainformación a la clase/métodos
 
