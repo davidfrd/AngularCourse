@@ -4,7 +4,7 @@
 ## Referencias recomendadas
 - [BeyondSPA](https://developers.google.com/web/updates/2018/05/beyond-spa)
 - [ErrorHandle Angular](https://angular.io/api/core/ErrorHandler)
-- [App Shell - Addy Osmani](https://developers.google.com/web/fundamentals/architecture/app-shell?hl=es)
+- [PWA - App Shell - Addy Osmani](https://developers.google.com/web/fundamentals/architecture/app-shell?hl=es)
 - [Page.js](https://visionmedia.github.io/page.js/)
 - [Axios](https://github.com/axios/axios)
 - [Service Locator Pattern](https://en.wikipedia.org/wiki/Service_locator_pattern)
